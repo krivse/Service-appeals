@@ -2,7 +2,7 @@
 
 # Система регистрации обращений.
 
-**_Ссылка на [проект](http://158.160.17.81:8080 "Гиперссылка к проекту.")_**
+**_Ссылка на [проект](http://81.200.31.76:8080/ "Гиперссылка к проекту.")_**
 
 Система состоит из следующих элементов:
 ```
@@ -55,10 +55,25 @@ git@github.com:krivse/Foodgram.git
 
 **_Установить на сервере Docker, Docker Compose:_**
 ```
-sudo apt install curl                                   - установка утилиты для скачивания файлов
-curl -fsSL https://get.docker.com -o get-docker.sh      - скачать скрипт для установки
-sh get-docker.sh                                        - запуск скрипта
-sudo apt-get install docker-compose-plugin              - последняя версия docker compose
+1. sudo apt install curl                                   - установка утилиты для скачивания файлов
+2. curl -fsSL https://get.docker.com -o get-docker.sh      - скачать скрипт для установки
+3. sh get-docker.sh                                        - запуск скрипта
+4. sudo apt-get install docker-compose-plugin              - последняя версия docker compose
+5. sudo apt install \
+   apt-transport-https \
+   ca-certificates \
+   curl \
+   gnupg-agent \
+   software-properties-common -y                         - Установить необходимые пакеты для загрузки через https
+6. curl -fsSL \ 
+   https://download.docker.com/linux/ubuntu/gpg | \
+   sudo apt-key add -                                    - Ключ GPG для подтверждения подлинности в процессе установки
+7. sudo add-apt-repository "deb [arch=amd64] \
+   https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) stable"                            - Добавьте репозиторий Docker в пакеты apt
+8. sudo apt update                                       - В APT был добавлен новый репозиторий, обновление индекса пакетов
+
+9. sudo apt install docker-ce docker-compose -y          - Установите Docker, а вместе с ним Docker Compose
 ```
 **_В директории проекта файл myenv.env переименовать в .env и заполнить своими данными_**
 

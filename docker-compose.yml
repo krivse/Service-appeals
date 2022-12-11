@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 
 services:
@@ -20,7 +20,8 @@ services:
       - rabbitmq
 
   web:
-    image: krivse/backend_appeals:v1.0
+    image: krivse/backend_appeals:v2.0
+#    image: krivse/backend_appeals:v1.0 (debian)
 #    build:
 #      context: backend
 #      dockerfile: Dockerfile
@@ -46,7 +47,8 @@ services:
       - web
 
   servicedb:
-    image: krivse/comsumer_appeals:v1.0
+    image: krivse/consumer_appeals:v2.0
+#    image: krivse/comsumer_appeals:v1.0 (debian)
 #    build:
 #      context: servicedb
 #      dockerfile: Dockerfile
